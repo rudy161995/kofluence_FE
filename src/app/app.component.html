@@ -1,0 +1,128 @@
+<ng-container>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="navbar navbar-dark bg-dark col-12">
+        <span class="navbar-text clr_white">
+          Details
+        </span>
+      </nav>
+    </div>
+    <div *ngIf="dbUnconnected" class="row" style="background: darksalmon;">
+      {{dbError}}
+    </div>
+    <!-- <div class="row">
+      <p-fileUpload name="myfile" url="http://localhost:5000/api/post"></p-fileUpload>
+    </div> -->
+    <div *ngIf="!dbUnconnected" class="row">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12">
+            <tag-input class="pt-4 custom" [(ngModel)]="items" (onAdd)="onAdd($event)" (onRemove)="onRemove($event)">
+            </tag-input>
+          </div>
+          <div class="col-12 pt-2">
+            <span class="font-weight-bold">Hashtags:</span>
+            <ng-container *ngFor="let tags of relatedTags">
+              <span class="chip_css" (click)="relatedTagClick(tags)">
+                #{{tags.tag}}
+              </span>
+            </ng-container>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 pt-3">
+            <span class="font-weight-bold">Your Posts</span>
+          </div>
+          <div class="col-12">
+            <div class="scrolling-wrapper pt-3">
+              <ng-container *ngFor="let uposts of userPosts">
+                <div class="card mr-1" style="width: 182px;border-radius: 4px;">
+                  <div>
+                    <div><i class="fa fa-clock-o clk_icon_css"><span class="date_css pl-2">{{uposts.date}}</span></i>
+                    </div>
+                    <div class="circle_icon">
+                      <i *ngIf="!uposts.filename.includes('mp4')" class="fa fa-image icon_css"></i>
+                      <i *ngIf="uposts.filename.includes('mp4')" class="fa fa-play icon_css1"></i>
+                    </div>
+                  </div>
+                  <img class="card-img-top" *ngIf="!uposts.filename.includes('mp4')"
+                    style="border-top-left-radius: inherit;border-top-right-radius: inherit;height: 156.22px;"
+                    src="http://localhost:5000/api/post/getfile/{{uposts.filename}}" alt="Card image cap">
+                  <video *ngIf="uposts.filename.includes('mp4')"
+                    src="http://localhost:5000/api/post/getfile/{{uposts.filename}}"
+                    style="border-top-left-radius: inherit;border-top-right-radius: inherit;" width="180" height="150"
+                    controls>
+                    Your browser does not support the video tag.
+                  </video>
+                  <div class="card-text">
+                    <span class="footer_css">
+                      <i class="fa fa-heart" aria-hidden="true"></i>{{uposts.likes}}
+                      <i class="fa fa-comments" aria-hidden="true"></i>{{uposts.comments}}
+                    </span>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="col-12 pt-3">
+            <div class="row scrolling-wrapper1">
+              <div class="col-12 pt-3 pb-3">
+                <span class="font-weight-bold">Similar Posts</span>
+              </div>
+              <div class="col-12">
+                <ng-container *ngFor="let sPost of similarPosts">
+                  <div class="card mr-1 card_css mt-3">
+                    <div>
+                      <div class="post_clk"><i class="fa fa-clock-o"><span
+                            class="date_css pl-2">{{sPost.date}}</span></i></div>
+                      <div class="circle_icon">
+                        <i *ngIf="!sPost.filename.includes('mp4')" class="fa fa-image icon_css"></i>
+                        <i *ngIf="sPost.filename.includes('mp4')" class="fa fa-play icon_css1"></i>
+                      </div>
+                    </div>
+                    <img class="card-img-top" *ngIf="!sPost.filename.includes('mp4')"
+                      style="border-top-left-radius: inherit;border-top-right-radius: inherit;height: 156.22px;"
+                      src="http://localhost:5000/api/post/getfile/{{sPost.filename}}" alt="Card image cap">
+                    <video *ngIf="sPost.filename.includes('mp4')"
+                      src="http://localhost:5000/api/post/getfile/{{sPost.filename}}"
+                      style="border-top-left-radius: inherit;border-top-right-radius: inherit;" width="180" height="150"
+                      controls>
+                      Your browser does not support the video tag.
+                    </video>
+                    <div class="card-text">
+                      <span class="footer_css">
+                        <i class="fa fa-heart" aria-hidden="true"></i>{{sPost.likes}}
+                        <i class="fa fa-comments" aria-hidden="true"></i>{{sPost.comments}}
+                      </span>
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="fixed-bottom" style="background-color: white;">
+      <div class="foot">
+        <div class=" box pt-4 pl-4">
+          <i class="fa fa-home" style="font-size: 30px;"></i>
+          <div style="font-size: 15px;">Home</div>
+        </div>
+        <div class="box pt-4 pl-4">
+          <i class="fa fa-user-circle-o" style="font-size: 28px;"></i>
+          <div style="font-size: 15px;">Profile</div>
+        </div>
+        <div class="box pt-4 pl-4">
+          <i class="fa fa-bar-chart" style="font-size: 28px;"></i>
+          <div style="font-size: 15px;">Insights</div>
+        </div>
+        <div class="box pt-4 pl-4">
+          <i class="fa fa-bell" style="font-size:28px;"></i>
+          <div style="font-size: 15px;">Profile</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

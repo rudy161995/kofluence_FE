@@ -1,0 +1,137 @@
+.clr_white{
+    color: white;
+}
+
+.scrolling-wrapper {
+    overflow-x: scroll;
+    // overflow-y: hidden;
+    white-space: nowrap;
+  
+    .card {
+      display: inline-block;
+    }
+  }
+
+  .scrolling-wrapper {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .scrolling-wrapper1 {
+    .card {
+      display: inline-block;
+    }
+  }
+
+  .circle_icon{
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    background-color: #FFBF00;
+    border-radius: 11px;
+    right: 5px;
+    top: 5px;
+  }
+
+  .icon_css{
+    position: relative;
+    left: 3px;
+  }
+
+  .clk_icon_css{
+    position: absolute;
+    color: white;
+    left: 8px;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .date_css{
+    font-size: 13px;
+    font-family: Metropolis;
+    font-weight: bold;
+  }
+
+  .footer_css{
+    position: relative;
+    left: 30px;
+  }
+
+  .icon_css1{
+    position: relative;
+    left: 7px;
+  }
+  @media (min-width: 1024px) { 
+      .card_css{
+        width: 194px;
+        border-radius: 4px;
+      }
+   }
+
+   @media (min-width: 768px) and (max-width: 1023px) { 
+       .card_css{
+        width: 180px;
+        border-radius: 4px;
+       }
+   }
+
+
+   @media (max-width: 400px) { 
+    .card_css{
+     width: 161px;
+     border-radius: 4px;
+    }
+}
+
+.chip_css{
+    width: fit-content;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    letter-spacing: .05rem;
+    color: #444;
+    border-radius: 16px;
+    transition: .3s;
+    margin: .1rem .3rem .1rem 0;
+    padding: .08rem .45rem;
+    height: 32px;
+    line-height: 34px;
+    background: rgba(255, 191, 0, 0.2);
+    user-select: none;
+    overflow: hidden;
+    outline: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.cus{
+  background-color: black;
+}
+
+.foot{
+  display: flex;
+  
+}
+
+.box{
+  flex-grow:2
+}
+.custom{
+  div{
+    background-color: black;
+  }
+}
+
+.post_clk{
+  color: white;
+    position: absolute;
+    left: 8px;
+    top: 8px;
+}
+
+//    .card_css{
+//     width: 188px;
+//     border-radius: 4px;
+//    }
